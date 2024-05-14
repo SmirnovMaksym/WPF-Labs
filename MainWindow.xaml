@@ -9,6 +9,6 @@
     <Canvas Background="LightBlue">
         <Label Content="Label" Canvas.Left="20" Canvas.Top="20" />
         <TextBox Text="Text" Canvas.Left="40" Canvas.Top="40" Width="30" Height="20" />
-        <Button Content="Button" Canvas.Left="60" Canvas.Top="60" Width="40" Height="30" />
+        <Button Content="Button" Canvas.Left="60" Canvas.Top="60" Width="40" Height="30"/>
     </Canvas>
 </Window>
