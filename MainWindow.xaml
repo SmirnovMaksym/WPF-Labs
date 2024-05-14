@@ -39,26 +39,30 @@
 
         <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="1" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button ToolTip="Відкрити">
-                    <Image Source="images/1.png" Width="30" Height="30"/>
+                <Button ToolTip="Відкрити" Command="Open">
+                    <Image Source="images/1.png" Width="40" Height="40"/>
                 </Button>
-                <Button ToolTip="Стерти">
-                    <Image Source="images/2.png" Width="30" Height="30"/>
+                <Button ToolTip="Стерти" Command="Delete">
+                    <Image Source="images/2.png" Width="40" Height="40"/>
                 </Button>
-                <Button ToolTip="Копіювати">
-                    <Image Source="images/3.png" Width="30" Height="30"/>
+                <Button ToolTip="Копіювати" Command="Copy">
+                    <Image Source="images/3.png" Width="40" Height="40"/>
                 </Button>
-                <Button ToolTip="Вставити">
-                    <Image Source="images/4.png" Width="30" Height="30"/>
+                <Button ToolTip="Вставити" Command="Paste">
+                    <Image Source="images/4.png" Width="40" Height="40"/>
                 </Button>
             </StackPanel>
         </Border>
         <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
             <Grid Margin="10">
-                <TextBox Grid.Row="0" Margin="0,0,0,10" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2" />
+                <TextBox Name="TextBox1" Grid.Row="0" Margin="0,0,0,40" VerticalScrollBarVisibility="Auto" FontSize="{Binding ElementName=fontSlider, Path=Value}"/>
 
-                <DockPanel VerticalAlignment="Bottom" Grid.ColumnSpan="2">
-                    <Button DockPanel.Dock="Bottom" Content="ОК"/>
+                <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
+                    <Label DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Розмір шрифту:" Margin="4"/>
+
+                    <Slider DockPanel.Dock="Left" Name="fontSlider" Width="150" Margin="4" Minimum="12" Maximum="100" />
+
+                    <Button DockPanel.Dock="Bottom" Content="ОК" Command="Save" />
                 </DockPanel>
             </Grid>
         </Border>
