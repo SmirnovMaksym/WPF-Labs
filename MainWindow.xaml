@@ -6,6 +6,57 @@
         xmlns:local="clr-namespace:WPF_Labs"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <!--<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="1" Content="label:" />
+        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">TextBox</TextBox>
+        <Button Grid.Row="2" Grid.Column="1" Content="button"/>
+    </Grid>-->
+
+    <!--<StackPanel>
+        <Label Content="label:" HorizontalAlignment="Center" />
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <Button Content="button" Width="Auto" Height="40"/>
+    </StackPanel>-->
+
+    <!--<WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+        <Label Content="label:" HorizontalAlignment="Center" />
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <Label Content="label:" HorizontalAlignment="Center" />
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <TextBox Text="TextBox" Width="Auto" Height="40"/>
+        <Button Content="button" Width="Auto" Height="30"/>
+    </WrapPanel>-->
+
+    <!--<DockPanel LastChildFill="False">
+        <Label Content="Label" DockPanel.Dock="Top" HorizontalAlignment="Center"/>
+        <TextBox DockPanel.Dock="Left" Width="300" >TextBox</TextBox>
+        <TextBox DockPanel.Dock="Right" Width="300">TextBox</TextBox>
+        <Button Height="30" Width="100"  DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="0, 0, 0, 50">button</Button>
+    </DockPanel>-->
+
     <Canvas Background="LightBlue">
         <Label Content="Label" Canvas.Left="20" Canvas.Top="20" />
         <TextBox Text="Text" Canvas.Left="40" Canvas.Top="40" Width="30" Height="20" />
