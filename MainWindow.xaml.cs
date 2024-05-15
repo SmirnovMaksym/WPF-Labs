@@ -16,34 +16,6 @@ namespace WPF_Labs
     /// </summary>
     public partial class MainWindow : Window
     {
-        private void CanExecute_Save(object sender, CanExecuteRoutedEventArgs e)
-        {
-            if (TextBox1.Text.Trim().Length > 0)
-            {
-                e.CanExecute = true;
-            }
-            else
-            {
-                e.CanExecute = false;
-            }
-        }
-
-        private void Execute_Save(object sender, ExecutedRoutedEventArgs e)
-        {
-            System.IO.File.WriteAllText("C:\\Users\\ironf\\OneDrive\\Робочий стіл\\University\\3 Year\\text.txt", TextBox1.Text);
-            MessageBox.Show("The file was saved!");
-        }
-
-        private void CanExecute_OpenFile(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void Execute_OpenFile(object sender, ExecutedRoutedEventArgs e)
-        {
-            MessageBox.Show("Opening file...");
-        }
-
         private void CanExecute_DeleteText(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = !string.IsNullOrEmpty(TextBox1.Text);
@@ -54,45 +26,39 @@ namespace WPF_Labs
             TextBox1.Clear();
         }
 
-        private void CanExecute_CopyText(object sender, CanExecuteRoutedEventArgs e)
+        private void Execute_Close(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CanExecute_Answer(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = !string.IsNullOrEmpty(TextBox1.Text);
         }
 
-        private void Execute_CopyText(object sender, ExecutedRoutedEventArgs e)
+        private readonly string[] answers = { "Так", "Ні", "Скоріше так", "Скоріше ні" };
+        private void Execute_Answer(object sender, ExecutedRoutedEventArgs e)
         {
-            Clipboard.SetText(TextBox1.Text);
+            Random rnd = new Random();
+            int index = rnd.Next(0, answers.Length);
+            Answer.Content = answers[index];
         }
 
-        private void CanExecute_PasteText(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = Clipboard.ContainsText();
-        }
-
-        private void Execute_PasteText(object sender, ExecutedRoutedEventArgs e)
-        {
-            TextBox1.Text += Clipboard.GetText();
-        }
-
+        public static RoutedUICommand AnswerCommand = new RoutedUICommand("Answer", "Answer", typeof(MainWindow));
 
         public MainWindow()
         {
             InitializeComponent();
 
-            CommandBinding saveCommand = new CommandBinding(ApplicationCommands.Save, Execute_Save, CanExecute_Save);
-            CommandBindings.Add(saveCommand);
+            CommandBinding closeCommand = new CommandBinding(ApplicationCommands.Close, Execute_Close);
+            CommandBindings.Add(closeCommand);
 
-            CommandBinding openCommand = new CommandBinding(ApplicationCommands.Open, Execute_OpenFile, CanExecute_OpenFile);
-            CommandBindings.Add(openCommand);
+            CommandBinding answerCommand = new CommandBinding(AnswerCommand, Execute_Answer, CanExecute_Answer);
+            CommandBindings.Add(answerCommand);
 
             CommandBinding deleteCommand = new CommandBinding(ApplicationCommands.Delete, Execute_DeleteText, CanExecute_DeleteText);
             CommandBindings.Add(deleteCommand);
 
-            CommandBinding copyCommand = new CommandBinding(ApplicationCommands.Copy, Execute_CopyText, CanExecute_CopyText);
-            CommandBindings.Add(copyCommand);
-
-            CommandBinding pasteCommand = new CommandBinding(ApplicationCommands.Paste, Execute_PasteText, CanExecute_PasteText);
-            CommandBindings.Add(pasteCommand);
         }
 
     }

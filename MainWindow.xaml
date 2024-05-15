@@ -3,66 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Labs"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
         <LinearGradientBrush x:Key="LinearPanelBrush" StartPoint="0,0" EndPoint="1,0">
-            <GradientStop Color="Yellow" Offset="0"/>
+            <GradientStop Color="Purple" Offset="0"/>
             <GradientStop Color="LightBlue" Offset="0.5"/>
-            <GradientStop Color="Yellow" Offset="1"/>
+            <GradientStop Color="purple" Offset="1"/>
         </LinearGradientBrush>
-
-        <Style x:Key="CustomButtonStyle" TargetType="Button">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="White"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="1" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button ToolTip="Відкрити" Command="Open">
-                    <Image Source="images/1.png" Width="40" Height="40"/>
-                </Button>
-                <Button ToolTip="Стерти" Command="Delete">
-                    <Image Source="images/2.png" Width="40" Height="40"/>
-                </Button>
-                <Button ToolTip="Копіювати" Command="Copy">
-                    <Image Source="images/3.png" Width="40" Height="40"/>
-                </Button>
-                <Button ToolTip="Вставити" Command="Paste">
-                    <Image Source="images/4.png" Width="40" Height="40"/>
-                </Button>
-            </StackPanel>
-        </Border>
         <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
             <Grid Margin="10">
-                <TextBox Name="TextBox1" Grid.Row="0" Margin="0,0,0,40" VerticalScrollBarVisibility="Auto" FontSize="{Binding ElementName=fontSlider, Path=Value}"/>
-
-                <DockPanel Grid.Row="1" VerticalAlignment="Bottom">
+                <Label Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Задайте питання та натисність на ворожку:" FontSize="18"/>
+                <TextBox Name="TextBox1" VerticalAlignment="Top" Grid.Row="1" Height="70" Margin="0,40,0,0" VerticalScrollBarVisibility="Auto" FontSize="{Binding ElementName=fontSlider, Path=Value}"/>
+                <Button ToolTip="Стерти" Command="Delete" HorizontalAlignment="Right" Width="50" Height="50" Margin="0, 0, 0, 120">
+                    <Image Source="images/6.png" VerticalAlignment="Center" Margin="0, 0, 0, 0"  Width="50" Height="50"/>
+                </Button>
+                <Image Source="images/7.png" Width="150" Height="150"/>
+                <Button ToolTip="Ворожка" Grid.Row="2" VerticalAlignment="Center" Width="70" Height="55" Cursor="Hand" Opacity="0" Command="{x:Static local:MainWindow.AnswerCommand}" Margin="0, 50, 0, 0"></Button>
+                <Label Grid.Row="3" Name="Answer" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0, 0, 0, 65" Content="" FontSize="18"/>
+                <DockPanel Grid.Row="4" VerticalAlignment="Bottom">
                     <Label DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Розмір шрифту:" Margin="4"/>
 
                     <Slider DockPanel.Dock="Left" Name="fontSlider" Width="150" Margin="4" Minimum="12" Maximum="100" />
 
-                    <Button DockPanel.Dock="Bottom" Content="ОК" Command="Save" />
+                    <Button DockPanel.Dock="Bottom" Content="Вийти" Command="Close" />
                 </DockPanel>
             </Grid>
         </Border>

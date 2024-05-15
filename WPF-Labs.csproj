@@ -14,6 +14,8 @@
     <None Remove="images\2.png" />
     <None Remove="images\3.png" />
     <None Remove="images\4.png" />
+    <None Remove="images\6.png" />
+    <None Remove="images\7.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +29,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\7.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
